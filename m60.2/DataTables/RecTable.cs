@@ -96,7 +96,7 @@ namespace m60._2.DataTables
             int rowindex = 0;
 
             /* Remove "Record - " substring */
-            recordname = recordname.Substring(9);
+            //recordname = recordname.Substring(9);
 
             foreach (DataRow dr in Data.Rows)
             {
