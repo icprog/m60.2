@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63F72F38-76DA-47EB-AF49-F728EF06C211}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>m60._2</RootNamespace>
+    <AssemblyName>m60.2</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ChipInfo.cs" />
+    <Compile Include="Classes\ProjInfo.cs" />
+    <Compile Include="Classes\NodeChip.cs" />
+    <Compile Include="Classes\CSM.cs" />
+    <Compile Include="Classes\NodeProj.cs" />
+    <Compile Include="Classes\NodeRec.cs" />
+    <Compile Include="DataTables\ProjectTable.cs" />
+    <Compile Include="Classes\RecInfo.cs" />
+    <Compile Include="DataTables\ChipTable.cs" />
+    <Compile Include="DataTables\RecTable.cs" />
+    <Compile Include="Forms\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\mCSM.cs" />
+    <Compile Include="Forms\FormBasicOneChipSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBasicOneChipSettings.Designer.cs">
+      <DependentUpon>FormBasicOneChipSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChipEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChipEditor.Designer.cs">
+      <DependentUpon>FormChipEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChipEditorSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChipEditorSettings.Designer.cs">
+      <DependentUpon>FormChipEditorSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormChipSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormChipSettings.Designer.cs">
+      <DependentUpon>FormChipSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNewProj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewProj.Designer.cs">
+      <DependentUpon>FormNewProj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRecSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRecSettings.Designer.cs">
+      <DependentUpon>FormRecSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSampleEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSampleEditor.Designer.cs">
+      <DependentUpon>FormSampleEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Menu\Editors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Menu\FileNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Menu\FileOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Menu\FileSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\mSpotValue.cs" />
+    <Compile Include="Classes\NodeTag.cs" />
+    <Compile Include="Handlers\Menu\FileSaveAs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Node\ChipNodeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Node\NodeMethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Node\RecNodeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Handlers\Node\ProjNodeMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="DataTables\SubChipTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Classes\SpotValue.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBasicOneChipSettings.resx">
+      <DependentUpon>FormBasicOneChipSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChipEditor.resx">
+      <DependentUpon>FormChipEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChipEditorSettings.resx">
+      <DependentUpon>FormChipEditorSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormChipSettings.resx">
+      <DependentUpon>FormChipSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewProj.resx">
+      <DependentUpon>FormNewProj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRecSettings.resx">
+      <DependentUpon>FormRecSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSampleEditor.resx">
+      <DependentUpon>FormSampleEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\RightClick\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
