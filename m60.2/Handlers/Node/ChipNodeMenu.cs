@@ -27,7 +27,7 @@ namespace m60._2
          
                 case "Edit Chip Settings":
 
-                    FormChipSettings frm_EditChip = new FormChipSettings(Project.ProjectPath, Chips.GetChipInfo(LastRightClickedNode.Text));
+                    FormChipSettings frm_EditChip = new FormChipSettings(this.ProjectRoot, Chips.GetChipInfo(LastRightClickedNode.Text));
                     //frm_EditChip.EditChipUpdated += new FormChipSettings.NewChipUpdateHandler(frm_EditChip_EditChipUpdated);
                     frm_EditChip.NewChipUpdated += new FormChipSettings.NewChipUpdateHandler(frm_EditChip_EditChipUpdated);
                     

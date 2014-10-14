@@ -50,8 +50,10 @@ namespace m60._2
                     string p = Path.GetDirectoryName(ofd.FileName);
                     //string n = Path.GetFileNameWithoutExtension(ofd.FileName);
 
-                    if (Project.GetProjectPath() != p) 
-                        Project.UpdateProjectPath(p);
+                    //if (Project.GetProjectPath() != p) 
+                    //    Project.UpdateProjectPath(p);
+
+                    if (this.ProjectRoot != p) this.ProjectRoot = p;
 
                     UpdateTreeView();
                     DisplayStatusMessage("The project has been opened.", MessageColor.Normal);

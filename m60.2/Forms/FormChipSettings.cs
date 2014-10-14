@@ -21,7 +21,7 @@ namespace m60._2.Forms
 
         // add an event of the delegate type
         public event NewChipUpdateHandler NewChipUpdated;       
-        private string ppath;
+        private string ProjectRoot;
         public Form1 parent;
 
         public FormChipSettings()
@@ -32,7 +32,7 @@ namespace m60._2.Forms
         public FormChipSettings(string projfolder)
         {
             InitializeComponent();
-            this.ppath = projfolder;
+            this.ProjectRoot = projfolder;
             tb_chipid.Text = "not specified";
             
         }
@@ -40,7 +40,7 @@ namespace m60._2.Forms
         public FormChipSettings(string projfolder, ChipInfo ci)
         {
             InitializeComponent();
-            this.ppath = projfolder;
+            this.ProjectRoot = projfolder;
             tb_chipname.Text = ci.chipname;
             tb_chipid.Text = ci.chipid;
             tb_xmlfilename.Text = ci.xmlfilename;
@@ -90,7 +90,7 @@ namespace m60._2.Forms
         private void btn_browsexml_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = this.ppath;
+            ofd.InitialDirectory = this.ProjectRoot;
             ofd.Filter = "XML Files (*.xml)|*.xml";
             ofd.FilterIndex = 0;
             ofd.DefaultExt = ".xml";
@@ -121,7 +121,7 @@ namespace m60._2.Forms
                         string src, dest;
 
                         src = ofd.FileName;
-                        dest = this.ppath + "\\XML\\" + Path.GetFileName(ofd.FileName);
+                        dest = Path.GetFileName(ofd.FileName);
                         if (src == dest)
                         {
                             MessageBox.Show("Source and destination files are the same.",
@@ -130,7 +130,7 @@ namespace m60._2.Forms
                                         MessageBoxIcon.Warning);
                             return;
                         }
-                        File.Copy(src, dest, true);
+                        File.Copy(src, this.ProjectRoot + "\\XML\\" + dest, true);
 
                         this.tb_xmlfilename.Text = dest;
                        
@@ -142,7 +142,7 @@ namespace m60._2.Forms
         private void btn_browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = this.ppath;
+            ofd.InitialDirectory = this.ProjectRoot;
             ofd.Filter = "XML Files (*.xml)|*.xml";
             ofd.FilterIndex = 0;
             ofd.DefaultExt = ".xml";
@@ -173,7 +173,7 @@ namespace m60._2.Forms
                         string src, dest;
 
                         src = ofd.FileName;
-                        dest = this.ppath + "\\Info\\" + Path.GetFileName(ofd.FileName);
+                        dest = Path.GetFileName(ofd.FileName);
                         if (src == dest)
                         {
                             MessageBox.Show("Source and destination files are the same.",
@@ -182,7 +182,7 @@ namespace m60._2.Forms
                                         MessageBoxIcon.Warning);
                             return;
                         }
-                        File.Copy(src, dest, true);
+                        File.Copy(src, this.ProjectRoot + "\\Info\\" + dest, true);
 
                         this.tb_samplefilename.Text = dest;
                     }

@@ -25,6 +25,7 @@ namespace m60._2
         ChipTable Chips = new ChipTable();
         SubChipTable SubChips = new SubChipTable();
         private TreeNode LastRightClickedNode = new TreeNode();
+        public string ProjectRoot;
 
         enum MessageColor
         {

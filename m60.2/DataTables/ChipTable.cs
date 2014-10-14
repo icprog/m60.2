@@ -10,6 +10,7 @@ namespace m60._2.DataTables
     public class ChipTable
     {
           private DataTable Data = new DataTable();
+          //public string ProjectRoot;
 
           public ChipTable()
         {

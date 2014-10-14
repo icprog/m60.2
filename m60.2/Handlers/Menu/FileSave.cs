@@ -43,7 +43,7 @@ namespace m60._2
             ds.Tables.Add(Chips.GetChips().Copy());
             ds.Tables.Add(SubChips.GetSubChips().Copy());
 
-            ds.WriteXml(Project.GetProjectPath() + "\\" + Project.GetProjectName() + ".proj");
+            ds.WriteXml(this.ProjectRoot + "\\" + Project.GetProjectName() + ".proj");
 
             //még hasznalható kód
 

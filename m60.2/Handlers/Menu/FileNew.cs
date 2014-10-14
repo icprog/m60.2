@@ -51,7 +51,7 @@ namespace m60._2
                 pi.projectcomments = e.ProjComments;
                 Project.AddNewProject(pi);
                 CreateEmptyProject(pi.projectpath, pi.projectname);
-
+                this.ProjectRoot = pi.projectpath;//abszolút projektelérés gyökérkönyvtár
                 UpdateTreeView();
 
                 DisplayStatusMessage("A new project has been created.", MessageColor.Normal);
@@ -77,6 +77,7 @@ namespace m60._2
                 ds.Tables.Add(Records.GetRecords().Copy());
                 ds.Tables.Add(Chips.GetChips().Copy());
                 ds.Tables.Add(SubChips.GetSubChips().Copy());
+
 
                 ds.WriteXml(pp + "\\"+ projectname+".proj");
 

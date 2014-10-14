@@ -24,7 +24,7 @@ namespace m60._2
             switch (e.ClickedItem.ToString())
             {
                 case "Add Record":
-                    FormRecSettings frm_NewRec = new FormRecSettings(Project.GetProjectPath());
+                    FormRecSettings frm_NewRec = new FormRecSettings(this.ProjectRoot);
                     frm_NewRec.NewRecUpdated += new FormRecSettings.NewRecUpdateHandler(frm_NewRec_NewRecUpdated);
                     
                     if (frm_NewRec.ShowDialog() == DialogResult.OK)
@@ -50,9 +50,9 @@ namespace m60._2
             ri.meanmethod = e.MeanMethod;
             ri.invglobalhandling = e.InvHandling;
 
-            Records.AddNewRecord(ri);
-
-            
+            //add project root only once per project session
+            if (Records.ProjectRoot.Length == 0) Records.ProjectRoot = this.ProjectRoot;
+            Records.AddNewRecord(ri);         
         }
     }
 

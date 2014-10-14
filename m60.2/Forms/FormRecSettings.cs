@@ -21,7 +21,7 @@ namespace m60._2.Forms
         
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
-        private string ppath;
+        private string ProjectRoot;
         
 
         public FormRecSettings()
@@ -32,13 +32,13 @@ namespace m60._2.Forms
         public FormRecSettings(string projfolder)
         {
             InitializeComponent();
-            this.ppath = projfolder;
+            this.ProjectRoot = projfolder;
         }
 
         public FormRecSettings(string projfolder, RecInfo ri)
         {
             InitializeComponent();
-            this.ppath = projfolder;
+            this.ProjectRoot = projfolder;
             tb_recdatetime.Text = ri.recordname.Substring(0, 8);
             tb_recsuffix.Text = ri.recordname.Substring(9);
             tb_filename.Text = ri.antigenelistfile;
@@ -92,7 +92,7 @@ namespace m60._2.Forms
         private void btn_browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.InitialDirectory = this.ppath;
+            ofd.InitialDirectory = this.ProjectRoot;
             ofd.Filter = "XML (*.xml)|*.xml";
             ofd.FilterIndex = 0;
             ofd.DefaultExt = ".xml";
@@ -123,7 +123,7 @@ namespace m60._2.Forms
                         string src, dest;
 
                         src = ofd.FileName;
-                        dest = this.ppath + "\\Info\\" + Path.GetFileName(ofd.FileName);
+                        dest = Path.GetFileName(ofd.FileName);
                         if (src == dest)
                         {
                             MessageBox.Show("Source and destination files are the same.",
@@ -132,7 +132,7 @@ namespace m60._2.Forms
                                         MessageBoxIcon.Warning);
                             return;
                         }
-                        File.Copy(src, dest, true);
+                        File.Copy(src, this.ProjectRoot + "\\Info\\" + dest, true);
 
                         this.tb_filename.Text = dest;
                         

@@ -12,7 +12,7 @@ namespace m60._2.Classes
         private DataTable Data = new DataTable();
 
         //regi verzio mezoi
-        public string ProjectPath;      
+        //public string ProjectPath;      
         public string ProjectName;
         public string ProjectOwner;
         public string ProjectComments;
@@ -24,7 +24,7 @@ namespace m60._2.Classes
             Data.TableName = "ProjectInfo";
 
             Data.Columns.Add("ProjectName", typeof(string));
-            Data.Columns.Add("ProjectPath", typeof(string));
+            //Data.Columns.Add("ProjectPath", typeof(string));
             Data.Columns.Add("ProjectOwner", typeof(string));
             Data.Columns.Add("ProjectComments", typeof(string));
             Data.Columns.Add("ProjectDate", typeof(DateTime));
@@ -37,7 +37,7 @@ namespace m60._2.Classes
             DataRow dr = Data.NewRow();
 
             dr["ProjectName"] = pi.projectname;
-            dr["ProjectPath"] = pi.projectpath;
+            //dr["ProjectPath"] = pi.projectpath;
             dr["ProjectOwner"] = pi.projectowner;
             dr["ProjectComments"] = pi.projectcomments;
             dr["ProjectDate"] = pi.projectdate;
@@ -60,20 +60,20 @@ namespace m60._2.Classes
             Data = dt.Copy();           
         }
 
-        public string GetProjectPath()
-        {
-            return Data.Rows[0]["ProjectPath"].ToString();
-        }
+        //public string GetProjectPath()
+        //{
+        //    return Data.Rows[0]["ProjectPath"].ToString();
+        //}
 
         public string GetProjectName()
         {
             return Data.Rows[0]["ProjectName"].ToString();
         }
 
-        public void UpdateProjectPath(string p)
-        {
-            Data.Rows[0]["ProjectPath"] = p;
-        }
+        //public void UpdateProjectPath(string p)
+        //{
+        //    Data.Rows[0]["ProjectPath"] = p;
+        //}
 
         public void UpdateProjectName(string p)
         {

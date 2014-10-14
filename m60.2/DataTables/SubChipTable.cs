@@ -12,6 +12,7 @@ namespace m60._2
     public class SubChipTable
     {
         private DataTable Data = new DataTable();
+        public string ProjectRoot;
         public Form1 parent;
         private delegate void SetProgressBarDelegate (int val);
         
@@ -19,6 +20,7 @@ namespace m60._2
  
         public SubChipTable()
         {
+            this.ProjectRoot = String.Empty;
 
             Data.TableName = "SubChipData";
             Data.Columns.Add("subchipID", typeof(string));//1...16 darab subchip ID (A1,A2,B1,B2...H2) per hozzáadott chip
@@ -57,7 +59,7 @@ namespace m60._2
             double spot = new double();
             int j = 0;
 
-            dsxml.ReadXml(xmlfn);
+            dsxml.ReadXml(this.ProjectRoot + "\\XML\\" + xmlfn);
             ids = this.GetSubChipIDs(dsxml);
             samplelist = this.CreateSampleIDvsNameTable(sfn);
 
@@ -288,7 +290,7 @@ namespace m60._2
             //List<string> retlist = new List<string>(); 
             DataSet dss = new DataSet("temp");
             DataTable dt = new DataTable();
-            dss.ReadXml(sfn);
+            dss.ReadXml(this.ProjectRoot + "\\Info\\" + sfn);
 
             dt.Columns.Add("ID", typeof(string));
             dt.Columns.Add("Name", typeof(string));

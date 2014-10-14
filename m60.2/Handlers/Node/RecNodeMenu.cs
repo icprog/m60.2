@@ -30,7 +30,7 @@ namespace m60._2
             switch (e.ClickedItem.ToString())
             {
                 case "Add Chip":
-                    FormChipSettings frm_NewChip = new FormChipSettings(Project.GetProjectPath());
+                    FormChipSettings frm_NewChip = new FormChipSettings(this.ProjectRoot);
                     frm_NewChip.parent = this;
                     frm_NewChip.NewChipUpdated += new FormChipSettings.NewChipUpdateHandler(frm_NewChip_NewChipUpdated);
                     
@@ -44,7 +44,7 @@ namespace m60._2
 
                 case "Edit Record Settings":
 
-                    FormRecSettings frm_EditRec = new FormRecSettings(Project.GetProjectPath(), Records.GetRecordInfo(LastRightClickedNode.Text));
+                    FormRecSettings frm_EditRec = new FormRecSettings(this.ProjectRoot, Records.GetRecordInfo(LastRightClickedNode.Text));
                     frm_EditRec.NewRecUpdated += new FormRecSettings.NewRecUpdateHandler(frm_EditRec_EditRecUpdated);
                     
                     if (frm_EditRec.ShowDialog() == DialogResult.OK)
@@ -63,6 +63,8 @@ namespace m60._2
         private void frm_NewChip_NewChipUpdated(object sender, NewChipUpdateEventArgs e)
         {
             //string RecName = ExtractRecordName(LastRightClickedNode.Text);
+
+            if (SubChips.ProjectRoot.Length == 0) SubChips.ProjectRoot = this.ProjectRoot;
 
             string RecName = LastRightClickedNode.Text;
 

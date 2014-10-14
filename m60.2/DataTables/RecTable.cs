@@ -10,11 +10,14 @@ namespace m60._2.DataTables
     public class RecTable
     {
         private DataTable Data = new DataTable();
+        public string ProjectRoot;
 
         public RecTable()
         {
+            this.ProjectRoot = String.Empty;
+
             Data.TableName = "RecordInfo";
-      
+
             Data.Columns.Add("RecordName", typeof(string));
             Data.Columns.Add("Owner", typeof(string));
             Data.Columns.Add("AntigeneListFile", typeof(string));
@@ -24,6 +27,8 @@ namespace m60._2.DataTables
             int i;
             for (i = 1; i < 53; ++i) Data.Columns.Add("Ag" + i.ToString(), typeof(string));
         }
+
+        
 
         public void AddNewRecord(RecInfo ri)
         {
@@ -36,7 +41,7 @@ namespace m60._2.DataTables
             dr["InvGlobalHandling"] = ri.invglobalhandling;
 
             DataSet ds = new DataSet();
-            ds.ReadXml(ri.antigenelistfile);
+            ds.ReadXml(this.ProjectRoot + "\\Info\\" + ri.antigenelistfile);
 
             int i = 0;
             foreach (DataRow drs in ds.Tables[0].Rows)
@@ -59,7 +64,7 @@ namespace m60._2.DataTables
             Data.Rows[rowindex]["InvGlobalHandling"] = ri.invglobalhandling;
 
             DataSet ds = new DataSet();
-            ds.ReadXml(ri.antigenelistfile);
+            ds.ReadXml(this.ProjectRoot + "\\Info\\" + ri.antigenelistfile);
 
             int i = 0;
             foreach (DataRow drs in ds.Tables[0].Rows)

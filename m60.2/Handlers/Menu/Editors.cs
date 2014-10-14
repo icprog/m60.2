@@ -16,7 +16,7 @@ namespace m60._2
     {
         private void menu_lauchagfileeditor_Click(object sender, EventArgs e)
         {
-            FormChipEditor frm_chipeditor = new FormChipEditor(Project.ProjectPath);
+            FormChipEditor frm_chipeditor = new FormChipEditor(this.ProjectRoot);
             frm_chipeditor.Show();
         }
 
