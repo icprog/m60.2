@@ -20,7 +20,9 @@ namespace m60._2
             this.Node.NodeFont = new Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold);
             this.Node.ContextMenuStrip = CMS;
             this.EditChip.Text = "Edit Chip Settings";
+            this.EditChip.Enabled = false;
             this.DeleteChip.Text = "Delete Chip";
+            this.DeleteChip.Enabled = false;
             CMS.Items.AddRange(new ToolStripMenuItem[]{EditChip, DeleteChip});
         }
 

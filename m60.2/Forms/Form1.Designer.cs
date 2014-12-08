@@ -42,6 +42,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_basiconeanalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_exportresultscsv = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_editorsamplelist = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_lauchagfileeditor = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_launchsamplelisteditor = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,38 +93,38 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // menu_new
             // 
             this.menu_new.Name = "menu_new";
-            this.menu_new.Size = new System.Drawing.Size(173, 22);
+            this.menu_new.Size = new System.Drawing.Size(163, 22);
             this.menu_new.Text = "New Project";
             this.menu_new.Click += new System.EventHandler(this.menu_new_Click);
             // 
             // menu_fileopen
             // 
             this.menu_fileopen.Name = "menu_fileopen";
-            this.menu_fileopen.Size = new System.Drawing.Size(173, 22);
+            this.menu_fileopen.Size = new System.Drawing.Size(163, 22);
             this.menu_fileopen.Text = "Open Project";
             this.menu_fileopen.Click += new System.EventHandler(this.menu_fileopen_Click);
             // 
             // closeProjectToolStripMenuItem
             // 
             this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.closeProjectToolStripMenuItem.Text = "Close Project";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
             // 
             // menu_filesave
             // 
             this.menu_filesave.Name = "menu_filesave";
-            this.menu_filesave.Size = new System.Drawing.Size(173, 22);
+            this.menu_filesave.Size = new System.Drawing.Size(163, 22);
             this.menu_filesave.Text = "Save Project";
             this.menu_filesave.Click += new System.EventHandler(this.menu_filesave_Click);
             // 
@@ -131,35 +132,43 @@
             // 
             this.menu_saveas.Enabled = false;
             this.menu_saveas.Name = "menu_saveas";
-            this.menu_saveas.Size = new System.Drawing.Size(173, 22);
+            this.menu_saveas.Size = new System.Drawing.Size(163, 22);
             this.menu_saveas.Text = "Save Project As...";
             this.menu_saveas.Click += new System.EventHandler(this.menu_saveas_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // analysisToolStripMenuItem
             // 
             this.analysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menu_basiconeanalysis});
+            this.menu_basiconeanalysis,
+            this.menu_exportresultscsv});
             this.analysisToolStripMenuItem.Name = "analysisToolStripMenuItem";
-            this.analysisToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.analysisToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.analysisToolStripMenuItem.Text = "Analysis";
             // 
             // menu_basiconeanalysis
             // 
             this.menu_basiconeanalysis.Name = "menu_basiconeanalysis";
-            this.menu_basiconeanalysis.Size = new System.Drawing.Size(198, 22);
+            this.menu_basiconeanalysis.Size = new System.Drawing.Size(200, 22);
             this.menu_basiconeanalysis.Text = "Basic One Chip Analysis";
             this.menu_basiconeanalysis.Click += new System.EventHandler(this.menu_basiconeanalysis_Click);
+            // 
+            // menu_exportresultscsv
+            // 
+            this.menu_exportresultscsv.Name = "menu_exportresultscsv";
+            this.menu_exportresultscsv.Size = new System.Drawing.Size(200, 22);
+            this.menu_exportresultscsv.Text = "Export Results to CSV";
+            this.menu_exportresultscsv.Click += new System.EventHandler(this.menu_exportresultscsv_Click);
             // 
             // menu_editorsamplelist
             // 
@@ -167,20 +176,20 @@
             this.menu_lauchagfileeditor,
             this.menu_launchsamplelisteditor});
             this.menu_editorsamplelist.Name = "menu_editorsamplelist";
-            this.menu_editorsamplelist.Size = new System.Drawing.Size(47, 20);
+            this.menu_editorsamplelist.Size = new System.Drawing.Size(50, 20);
             this.menu_editorsamplelist.Text = "Editor";
             // 
             // menu_lauchagfileeditor
             // 
             this.menu_lauchagfileeditor.Name = "menu_lauchagfileeditor";
-            this.menu_lauchagfileeditor.Size = new System.Drawing.Size(204, 22);
+            this.menu_lauchagfileeditor.Size = new System.Drawing.Size(208, 22);
             this.menu_lauchagfileeditor.Text = "Launch Ag file Editor";
             this.menu_lauchagfileeditor.Click += new System.EventHandler(this.menu_lauchagfileeditor_Click);
             // 
             // menu_launchsamplelisteditor
             // 
             this.menu_launchsamplelisteditor.Name = "menu_launchsamplelisteditor";
-            this.menu_launchsamplelisteditor.Size = new System.Drawing.Size(204, 22);
+            this.menu_launchsamplelisteditor.Size = new System.Drawing.Size(208, 22);
             this.menu_launchsamplelisteditor.Text = "Launch Sample file Editor";
             this.menu_launchsamplelisteditor.Click += new System.EventHandler(this.menu_launchsamplelisteditor_Click);
             // 
@@ -198,7 +207,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(53, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 17);
             this.toolStripStatusLabel1.Text = "Progress:";
             // 
             // pb_xmlreader
@@ -348,6 +357,7 @@
         private System.Windows.Forms.ToolStripMenuItem menu_basiconeanalysis;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tbp_plot;
+        private System.Windows.Forms.ToolStripMenuItem menu_exportresultscsv;
     }
 }
 

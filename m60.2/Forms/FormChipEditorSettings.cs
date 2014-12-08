@@ -35,28 +35,25 @@ namespace m60._2.Forms
                 else if (tb_numspots.Text.Length > 0 && tb_columns.Text.Length > 0)
                 {
                     if ((Convert.ToInt32(tb_numspots.Text) % (Convert.ToInt32(tb_columns.Text))) > 0)
-                    MessageBox.Show("The number of spots doesn't match with the number of columns.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("The number of spots doesn't match with the number of columns.", "Error", MessageBoxButtons.OK);
+                    else
+                    {
+                        string mm;
+                        if (rbtn_uk.Checked == true) mm = "UK";
+                        else mm = "DE";
+
+                        NewChipSettingsUpdateEventArgs args = new NewChipSettingsUpdateEventArgs(
+                                                            Convert.ToInt32(tb_numspots.Text),
+                                                            Convert.ToInt32(tb_columns.Text),
+                                                            Convert.ToInt32(tb_numspotsmean.Text),
+                                                            mm
+                                                         );
+                        NewChipSettingsUpdated(this, args);
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
-                else
-                {
-                    string mm;
-                    if (rbtn_uk.Checked == true) mm = "UK";
-                    else mm = "DE";
 
-                    NewChipSettingsUpdateEventArgs args = new NewChipSettingsUpdateEventArgs(
-                                                        Convert.ToInt32(tb_numspots.Text),
-                                                        Convert.ToInt32(tb_columns.Text),
-                                                        Convert.ToInt32(tb_numspotsmean.Text),
-                                                        mm
-                                                     );
-                    NewChipSettingsUpdated(this, args);
-                    this.DialogResult = DialogResult.OK;
-                }
-
-            }
-
-            else
-            {
+            } else {
                 string mm;
                 switch (cmb_chiptype.SelectedIndex)
                 {

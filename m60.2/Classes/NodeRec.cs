@@ -21,8 +21,10 @@ namespace m60._2
             this.Node.NodeFont = new Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold);
             this.Node.ContextMenuStrip = CMS;
             this.EditRecordLabel.Text = "Edit Record Settings";
+            this.EditRecordLabel.Enabled = false;
             this.AddChipLabel.Text = "Add Chip";
             this.DeleteRecord.Text = "Delete Record";
+            this.DeleteRecord.Enabled = false;
             CMS.Items.AddRange(new ToolStripMenuItem[] { AddChipLabel, EditRecordLabel, DeleteRecord });
         }
 

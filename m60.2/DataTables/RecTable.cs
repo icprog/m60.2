@@ -42,7 +42,7 @@ namespace m60._2.DataTables
 
             DataSet ds = new DataSet();
             ds.ReadXml(this.ProjectRoot + "\\Info\\" + ri.antigenelistfile);
-
+            
             int i = 0;
             foreach (DataRow drs in ds.Tables[0].Rows)
             {               

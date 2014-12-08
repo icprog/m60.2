@@ -145,7 +145,5 @@ namespace m60._2.Forms
                 return magnorm;
             }
         }
-
-
     }//class updateeventargs
 }

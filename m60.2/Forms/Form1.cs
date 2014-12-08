@@ -26,6 +26,13 @@ namespace m60._2
         SubChipTable SubChips = new SubChipTable();
         private TreeNode LastRightClickedNode = new TreeNode();
         public string ProjectRoot;
+        //CSV
+        List<double> rv = new List<double>();
+        List<double> bv = new List<double>();
+        List<string> rn = new List<string>();
+        List<string> bn = new List<string>();
+        string csv_ag_n;
+        string csv_agnorm_n;
 
         enum MessageColor
         {
@@ -194,9 +201,14 @@ namespace m60._2
 
             int i;
             int agid, agnormid;
-            
+            rv.Clear();
+            rn.Clear();
+            bv.Clear();
+            bn.Clear();
 
             agid = Records.GetAntigeneID(e.RecName, e.Ag);
+            csv_ag_n = e.Ag;
+            csv_agnorm_n = e.AgNorm;
            
             foreach (DataRow dr in dt.Rows)
             {
@@ -209,8 +221,13 @@ namespace m60._2
                     string tooltip;
                     DataPoint b = new DataPoint();
                     DataPoint r = new DataPoint();
+                    
                     b.SetValueY(msvag.bvalue * 0xFFFF);
                     b.AxisLabel = msvag.subchipID;
+                    //CSV
+                    bv.Add(msvag.bvalue * 0xFFFF);
+                    bn.Add(msvag.samplename);
+
                     tooltip = "Value: #VALY\r\nSample: " + msvag.samplename + "\r\nSpots used: ";
                     if (msvag.bvalid == false) b.Color = Color.LightBlue;
                     else b.Color = Color.Blue;
@@ -222,6 +239,10 @@ namespace m60._2
 
                     r.SetValueY(msvag.rvalue * 0xFFFF);
                     r.AxisLabel = msvag.subchipID;
+                    //CSV
+                    rv.Add(msvag.rvalue * 0xFFFF);
+                    rn.Add(msvag.samplename);
+
                     tooltip = "Value: #VALY\r\nSample: " + msvag.samplename + "\r\nSpots used: ";
                     if (msvag.bvalid == false) r.Color = Color.LightCoral;
                     else r.Color = Color.Red;
@@ -246,19 +267,45 @@ namespace m60._2
                     blue.AxisY.Title = e.Ag + " / " + e.AgNorm;
                     SeriesR.Points.Add(msvag.rvalue / agnormr);
                     red.AxisY.Title = e.Ag + " / " + e.AgNorm;
+                    //CSV
+                    bv.Add(msvag.bvalue * 0xFFFF);
+                    bn.Add(msvag.samplename);
+                    rv.Add(msvag.bvalue * 0xFFFF);
+                    rn.Add(msvag.samplename);
                 }
 
                 
             }
 
-         
-                //int k = r.Next(1, 10);
-                //double f = 1.00 / (double)k;
-                //SeriesB.Points.Add(f);
-                //k = r.Next(1, 10);
-                //f = 1.00 / (double)k;
-                //SeriesR.Points.Add(f);
+        }
+
+        private void menu_exportresultscsv_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sd = new SaveFileDialog();
+            sd.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+            DialogResult result = sd.ShowDialog();
+
+            if (result == DialogResult.Cancel) return;
+            else
+            {
+                // Save to disk
+                //if (sd.FileName.Length > 0)
+                //    ds.WriteXml(sd.FileName);
+                //Project.IsModified = false;
+                string csv;
+                int i;
+                csv = "Name,Blue,Red,Selected antigen," + csv_ag_n + ",Normalized by," + csv_agnorm_n + "\r\n";
+                i = 0;
+                foreach (string str in bn)
+                {
+                    //csv = csv + (bn[i] + ";" + bv[i].ToString() + ";" + rv[i].ToString() + "\r\n");
+                    csv = csv + (bn[i] + "," + bv[i].ToString() + "," + rv[i].ToString() + "\r\n");
+                    i++;
+                }
+
+                File.WriteAllText(sd.FileName, csv);
             }
+        }
 
     }
 }
